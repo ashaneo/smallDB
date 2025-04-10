@@ -1,0 +1,13 @@
+{
+    "tables": {
+      "table1": {
+        "columns": ["id", "name"],
+        "primary_key": "id"
+      },
+      "table2": {
+        "columns": ["product_id", "price"],
+        "primary_key": "product_id"
+      }
+    }
+  }
+  
