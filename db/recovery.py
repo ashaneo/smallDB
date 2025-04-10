@@ -111,6 +111,27 @@ def recover():
                         os.fsync(f.fileno())
 
                     applied_transactions.add(txn_id)
+                
+                # === Replay DROP_TABLE ===
+                elif operation == "DROP_TABLE":
+                    txn_id = parts[1]
+                    table_name = parts[2]
+
+                    if txn_id in committed and txn_id not in applied_transactions:
+                        print(f"Recovering drop for table '{table_name}'...")
+
+                        # Remove from schema if exists
+                        if table_name in schema["tables"]:
+                            del schema["tables"][table_name]
+                            save_schema(schema)
+
+                        # Remove the .dat file if it exists
+                        table_file = os.path.join(DATA_DIR, f"{table_name}.dat")
+                        if os.path.exists(table_file):
+                            os.remove(table_file)
+
+                        applied_transactions.add(txn_id)
+
 
     print("=== Applied Transactions ===")
     print(applied_transactions)

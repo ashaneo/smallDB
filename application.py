@@ -20,4 +20,8 @@ print(result2)
 # Creating a new table dynamically
 create_table('table5', ["student_id", "index", "name", "age"], "student_id")
 
+# Drop an existing table
+drop_table('table3')
+
+
 # insert('table3', {"user_id": 200, "email": "john@example.com", "age": 28})

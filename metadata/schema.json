@@ -14,14 +14,6 @@
             ],
             "primary_key": "product_id"
         },
-        "table3": {
-            "columns": [
-                "user_id",
-                "email",
-                "age"
-            ],
-            "primary_key": "user_id"
-        },
         "table4": {
             "columns": [
                 "student_id",

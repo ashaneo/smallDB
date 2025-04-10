@@ -65,3 +65,28 @@ def create_table(table_name, columns, primary_key):
     write_log(f"CREATE TABLE {table_name} {json.dumps(columns)} PRIMARY_KEY {primary_key}")
 
     print(f"Table '{table_name}' created successfully.")
+
+def drop_table(table_name):
+    schema = load_schema()
+
+    # Check if table exists
+    if table_name not in schema["tables"]:
+        print(f"Table '{table_name}' does not exist.")
+        return
+
+    # Remove the table from schema
+    del schema["tables"][table_name]
+    save_schema(schema)
+
+    # Delete the data file
+    table_file_path = os.path.join(DATA_DIR, f"{table_name}.dat")
+    if os.path.exists(table_file_path):
+        os.remove(table_file_path)
+
+    # Log the drop operation (with timestamp for future recovery support)
+    txn_id = int(time.time() * 1000)
+    write_log(f"BEGIN {txn_id}")
+    write_log(f"DROP_TABLE {txn_id} {table_name}")
+    write_log(f"COMMIT {txn_id}")
+
+    print(f"Table '{table_name}' dropped successfully.")
