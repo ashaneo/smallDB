@@ -1,22 +1,18 @@
-from db import flush_worker  # Start background flush
 from db.database import insert
 from db.query import query
 from db.recovery import recover
 
-import os
-
-# Get the current working directory
-cwd = os.getcwd()
-
-
-# Run recovery on startup
+# Perform recovery first on startup
 recover()
 
-print("Hello")
-
 # Insert sample data
-insert('table1', {"id": 5, "name": "Eve"}, mode='fast')
-insert('table2', {"product_id": 202, "price": 39.99}, mode='safe')
+insert('table1', {"id": 1, "name": "Alice"})
+insert('table2', {"product_id": 100, "price": 19.99})
 
-# Query data
-print(query('table1', 'id', 5))
+# Query inserted data
+result1 = query('table1', 'id', 1)
+result2 = query('table2', 'product_id', 100)
+
+print("Query results:")
+print(result1)
+print(result2)
