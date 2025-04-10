@@ -1,4 +1,4 @@
-from db.database import insert
+from db.database import *
 from db.query import query
 from db.recovery import recover
 
@@ -16,3 +16,8 @@ result2 = query('table2', 'product_id', 100)
 print("Query results:")
 print(result1)
 print(result2)
+
+# Creating a new table dynamically
+create_table('table3', ["user_id", "email", "age"], "user_id")
+
+insert('table3', {"user_id": 200, "email": "john@example.com", "age": 28})

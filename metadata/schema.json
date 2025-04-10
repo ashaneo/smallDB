@@ -1,13 +1,26 @@
 {
     "tables": {
-      "table1": {
-        "columns": ["id", "name"],
-        "primary_key": "id"
-      },
-      "table2": {
-        "columns": ["product_id", "price"],
-        "primary_key": "product_id"
-      }
+        "table1": {
+            "columns": [
+                "id",
+                "name"
+            ],
+            "primary_key": "id"
+        },
+        "table2": {
+            "columns": [
+                "product_id",
+                "price"
+            ],
+            "primary_key": "product_id"
+        },
+        "table3": {
+            "columns": [
+                "user_id",
+                "email",
+                "age"
+            ],
+            "primary_key": "user_id"
+        }
     }
-  }
-  
+}
