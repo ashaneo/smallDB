@@ -21,6 +21,24 @@
                 "age"
             ],
             "primary_key": "user_id"
+        },
+        "table4": {
+            "columns": [
+                "student_id",
+                "index",
+                "name",
+                "age"
+            ],
+            "primary_key": "student_id"
+        },
+        "table5": {
+            "columns": [
+                "student_id",
+                "index",
+                "name",
+                "age"
+            ],
+            "primary_key": "student_id"
         }
     }
 }
