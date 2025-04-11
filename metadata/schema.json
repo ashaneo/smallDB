@@ -14,23 +14,13 @@
             ],
             "primary_key": "product_id"
         },
-        "table4": {
+        "table7": {
             "columns": [
-                "student_id",
-                "index",
+                "idd",
                 "name",
                 "age"
             ],
-            "primary_key": "student_id"
-        },
-        "table5": {
-            "columns": [
-                "student_id",
-                "index",
-                "name",
-                "age"
-            ],
-            "primary_key": "student_id"
+            "primary_key": "idd"
         }
     }
 }

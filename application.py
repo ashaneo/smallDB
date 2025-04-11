@@ -1,5 +1,5 @@
 from db.database import *
-from db.databaseFuncs.insert import insert
+
 from db.query import query
 from db.recovery import recover
 
@@ -11,14 +11,14 @@ recover()
 # insert('table2', {"product_id": 100, "price": 19.99})
 
 # Creating a new table dynamically
-# create_table('table5', ["student_id", "index", "name", "age"], "student_id")
+create_table('table7', ["idd","name", "age"], "idd")
 
 # Drop an existing table
 drop_table('table3')
 
-insert('table1', {"id": 200, "name": "Ashan"})
 
-from db.query import query
+insert('table1', {"id": 345, "name": "Subodha"})
+
 
 # # Simple WHERE clause
 # print(query("table1", conditions=[("id", "==", 1)]))
